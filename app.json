@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "daily-diet",
+    "slug": "daily-diet",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/src/system/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/src/system/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/src/system/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/src/system/favicon.png"
+    }
+  }
+}
