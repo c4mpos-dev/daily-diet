@@ -10,11 +10,10 @@ type HeaderStyleProps = ViewProps & {
     
 }
 
-export function Main(){
+export function Details(){
     return(
         <Container>
-            <Header/>
-            <Percentage title='40,10%' detail/>
+            <Percentage title='40,10%' back/>
         </Container>
     )
 }

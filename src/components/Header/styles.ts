@@ -1,13 +1,6 @@
-// import { CaretLeft } from 'phosphor-react-native';
 import styled, {useTheme} from 'styled-components/native';
 
-export type HeaderStyleProps = 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
-
-type Props = {
-    type: HeaderStyleProps;
-}
-
-export const Container = styled.View<Props>`
+export const Container = styled.View`
     margin: 15px 24px 0 24px;
     flex-direction: row;
     align-items: center;

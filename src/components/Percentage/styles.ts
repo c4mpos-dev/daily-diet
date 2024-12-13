@@ -1,5 +1,5 @@
 import styled, { css, useTheme } from "styled-components/native";
-import { ArrowUpRight } from 'phosphor-react-native';
+import { ArrowUpRight, ArrowLeft } from 'phosphor-react-native';
 import { TouchableOpacity } from "react-native";
 
 export type ButtonIconTypeStyleProps = 'PRIMARY' | 'SECONDARY' | "TERTIARY";
@@ -14,7 +14,7 @@ export const Container = styled(TouchableOpacity)<ButtonIconStyleProps>`
   height: 102px;
   margin: 30px 24px 0 24px;
   border-radius: 8px;
-  background-color: ${({ type }) => type === 'PRIMARY' ? useTheme().COLORS.GREEN_LIGHT : type === 'SECONDARY' ? useTheme().COLORS.RED_LIGHT : type === 'TERTIARY' ? useTheme().COLORS.GRAY_700 : undefined};
+  background-color: ${({ type }: ButtonIconStyleProps) => type === 'PRIMARY' ? useTheme().COLORS.GREEN_LIGHT : type === 'SECONDARY' ? useTheme().COLORS.RED_LIGHT : type === 'TERTIARY' ? useTheme().COLORS.GRAY_700 : undefined};
 `;
 
 export const Title = styled.Text`
@@ -37,11 +37,20 @@ export const Desciption = styled.Text`
   `}
 `
 
-export const StatisticsIcon = styled(ArrowUpRight).attrs<ButtonIconStyleProps>(({ type }) => ({
+export const StatisticsIcon = styled(ArrowUpRight).attrs<ButtonIconStyleProps>(({ type }: ButtonIconStyleProps) => ({
   size: useTheme().FONT_SIZE.XL,
   color: type === 'PRIMARY' ? useTheme().COLORS.GREEN_DARK : type === 'SECONDARY' ? useTheme().COLORS.RED_DARK : type === 'TERTIARY' ? useTheme().COLORS.GRAY_200 : undefined,
   fontFamily: useTheme().FONT_FAMILY.BOLD,
 }))`
-  top: 8px;
+  top: 10px;
   margin: 0 10px 0 auto;
+`;
+
+export const BackIcon = styled(ArrowLeft).attrs<ButtonIconStyleProps>(({type}: ButtonIconStyleProps) => ({
+  size: useTheme().FONT_SIZE.XL,
+  color: type === 'PRIMARY' ? useTheme().COLORS.GREEN_DARK : type === 'SECONDARY' ? useTheme().COLORS.RED_DARK : type === 'TERTIARY' ? useTheme().COLORS.GRAY_200 : undefined,
+  fontFamily: useTheme().FONT_FAMILY.BOLD,
+}))`
+  top: 10px;
+  margin: 0 auto 0 10px;
 `;

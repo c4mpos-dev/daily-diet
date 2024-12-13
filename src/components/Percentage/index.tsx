@@ -1,13 +1,15 @@
 import { TouchableOpacityProps } from 'react-native';
 
-import { ButtonIconTypeStyleProps, Container, Desciption, StatisticsIcon, Title } from './styles';
+import { ButtonIconTypeStyleProps, Container, Desciption, StatisticsIcon, Title, BackIcon } from './styles';
 
 export type PercentageProps = TouchableOpacityProps & {
   title: string
   type?: ButtonIconTypeStyleProps;
+  detail?: boolean;
+  back?: boolean;
 }
 
-export function Percentage({title, type,...rest }: PercentageProps) {
+export function Percentage({title, type, back, detail, ...rest }: PercentageProps) {
   if(parseFloat(title) <= parseFloat('50,00')) {
     type="SECONDARY"
   } else {
@@ -16,7 +18,8 @@ export function Percentage({title, type,...rest }: PercentageProps) {
 
   return (
     <Container {...rest} type={type}>
-      <StatisticsIcon weight='bold' type={type} />
+      {detail && <StatisticsIcon type={type} />}
+      {back && <BackIcon type={type}/>}
 
       <Title>
         {title}
