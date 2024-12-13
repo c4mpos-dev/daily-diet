@@ -8,7 +8,7 @@ type Props = {
 }
 
 export const Container = styled.View<Props>`
-    margin: 50px 24px 0 24px;
+    margin: 15px 24px 0 24px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;

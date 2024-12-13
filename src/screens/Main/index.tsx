@@ -1,6 +1,7 @@
 import { View, ViewProps } from 'react-native';
 import { Percentage } from '@components/Percentage';
 import { Header } from '@components/Header';
+import { Container } from './styles';
 
 type HeaderStyleProps = ViewProps & {
     isBackButtonVisible?: boolean;
@@ -11,9 +12,9 @@ type HeaderStyleProps = ViewProps & {
 
 export function Main(){
     return(
-        <View>
+        <Container>
             <Header/>
-            <Percentage title='90,86%'/>
-        </View>
+            <Percentage title='40,10%'/>
+        </Container>
     )
 }
