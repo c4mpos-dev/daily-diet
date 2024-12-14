@@ -1,19 +1,53 @@
-import { View, ViewProps } from 'react-native';
 import { Percentage } from '@components/Percentage';
-import { Header } from '@components/Header';
-import { Container } from './styles';
-
-type HeaderStyleProps = ViewProps & {
-    isBackButtonVisible?: boolean;
-    isLogoVisible?: boolean;
-    isAvatarVisible?: boolean;
-    
-}
+import { Container, ContainerPercentage, ContainerStatistics, DetailHeader, DietContainer, DietDesciption, DietsInfoContainer, DietText, OffDietContainer, OffDietDesciption, OffDietText, RegisteredContainer, RegisteredDesciption, RegisteredText, SequenceContainer, SequenceDesciption, SequenceText, StatisticsText } from './styles';
 
 export function Details(){
     return(
         <Container>
-            <Percentage title='40,10%' back/>
+            <DetailHeader>
+                <ContainerPercentage>      
+                    <Percentage title='90,10%' back/> 
+                </ContainerPercentage>
+            </DetailHeader>
+            <ContainerStatistics>
+                <StatisticsText>
+                    Estatísticas gerais
+                </StatisticsText>
+                <SequenceContainer>
+                    <SequenceText>
+                        4
+                    </SequenceText>
+                    <SequenceDesciption>
+                        melhor sequência de pratos dentro da dieta
+                    </SequenceDesciption>
+                </SequenceContainer>
+                <RegisteredContainer>
+                    <RegisteredText>
+                        109
+                    </RegisteredText>
+                    <RegisteredDesciption>
+                        refeições registradas
+                    </RegisteredDesciption>
+                </RegisteredContainer>
+                <DietsInfoContainer>
+                    <DietContainer>
+                        <DietText>
+                            32
+                        </DietText>
+                        <DietDesciption>
+                            refeições dentro da dieta
+                        </DietDesciption>
+                    </DietContainer>
+                    <OffDietContainer>
+                        <OffDietText>
+                            77
+                        </OffDietText>
+                        <OffDietDesciption>
+                            refeições fora da dieta
+                        </OffDietDesciption>
+                    </OffDietContainer>
+                </DietsInfoContainer>
+            </ContainerStatistics>
         </Container>
     )
 }

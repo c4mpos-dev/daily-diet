@@ -12,7 +12,7 @@ export const Container = styled(TouchableOpacity)<ButtonIconStyleProps>`
   justify-content: center;
   align-items: center;
   height: 102px;
-  margin: 30px 24px 0 24px;
+  margin: 20px 24px 0 24px;
   border-radius: 8px;
   background-color: ${({ type }: ButtonIconStyleProps) => type === 'PRIMARY' ? useTheme().COLORS.GREEN_LIGHT : type === 'SECONDARY' ? useTheme().COLORS.RED_LIGHT : type === 'TERTIARY' ? useTheme().COLORS.GRAY_700 : undefined};
 `;
@@ -25,7 +25,7 @@ export const Title = styled.Text`
     
     text-align: center;
   `}
-`
+`;
 
 export const Desciption = styled.Text`
   ${() => css`
@@ -35,7 +35,7 @@ export const Desciption = styled.Text`
     padding-bottom: 22px;
     text-align: center;
   `}
-`
+`;
 
 export const StatisticsIcon = styled(ArrowUpRight).attrs<ButtonIconStyleProps>(({ type }: ButtonIconStyleProps) => ({
   size: useTheme().FONT_SIZE.XL,

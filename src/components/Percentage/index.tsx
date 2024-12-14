@@ -18,7 +18,7 @@ export function Percentage({title, type, back, detail, ...rest }: PercentageProp
 
   return (
     <Container {...rest} type={type}>
-      {detail && <StatisticsIcon type={type} />}
+      {detail && <StatisticsIcon type={type}/>}
       {back && <BackIcon type={type}/>}
 
       <Title>
