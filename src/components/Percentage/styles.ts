@@ -14,7 +14,7 @@ export const Container = styled(TouchableOpacity)<ButtonIconStyleProps>`
   height: 102px;
   margin: 20px 24px 0 24px;
   border-radius: 8px;
-  background-color: ${({ type }: ButtonIconStyleProps) => type === 'PRIMARY' ? useTheme().COLORS.GREEN_LIGHT : type === 'SECONDARY' ? useTheme().COLORS.RED_LIGHT : type === 'TERTIARY' ? useTheme().COLORS.GRAY_700 : undefined};
+  background-color: ${({ type }: ButtonIconStyleProps) => type === 'PRIMARY' ? useTheme().COLORS.GREEN_LIGHT : type === 'SECONDARY' ? useTheme().COLORS.RED_LIGHT : undefined};
 `;
 
 export const Title = styled.Text`
@@ -39,7 +39,7 @@ export const Desciption = styled.Text`
 
 export const StatisticsIcon = styled(ArrowUpRight).attrs<ButtonIconStyleProps>(({ type }: ButtonIconStyleProps) => ({
   size: useTheme().FONT_SIZE.XL,
-  color: type === 'PRIMARY' ? useTheme().COLORS.GREEN_DARK : type === 'SECONDARY' ? useTheme().COLORS.RED_DARK : type === 'TERTIARY' ? useTheme().COLORS.GRAY_200 : undefined,
+  color: type === 'PRIMARY' ? useTheme().COLORS.GREEN_DARK : type === 'SECONDARY' ? useTheme().COLORS.RED_DARK : undefined,
   fontFamily: useTheme().FONT_FAMILY.BOLD,
 }))`
   top: 10px;
@@ -48,7 +48,7 @@ export const StatisticsIcon = styled(ArrowUpRight).attrs<ButtonIconStyleProps>((
 
 export const BackIcon = styled(ArrowLeft).attrs<ButtonIconStyleProps>(({type}: ButtonIconStyleProps) => ({
   size: useTheme().FONT_SIZE.XL,
-  color: type === 'PRIMARY' ? useTheme().COLORS.GREEN_DARK : type === 'SECONDARY' ? useTheme().COLORS.RED_DARK : type === 'TERTIARY' ? useTheme().COLORS.GRAY_200 : undefined,
+  color: type === 'PRIMARY' ? useTheme().COLORS.GREEN_DARK : type === 'SECONDARY' ? useTheme().COLORS.RED_DARK : undefined,
   fontFamily: useTheme().FONT_FAMILY.BOLD,
 }))`
   top: 10px;

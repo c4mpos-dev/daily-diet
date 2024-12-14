@@ -15,9 +15,10 @@ export const ContainerPercentage = styled(SafeAreaView)`
 `;
 
 export const DetailHeader = styled.View<StyleProps>`
-    background-color: ${({ type }: StyleProps) => type === 'PRIMARY' ? useTheme().COLORS.GREEN_LIGHT : type === 'SECONDARY' ? useTheme().COLORS.RED_LIGHT : 'purple'};
+    background-color: ${({ type }: StyleProps) => type === 'PRIMARY' ? useTheme().COLORS.GREEN_LIGHT : type === 'SECONDARY' ? useTheme().COLORS.RED_LIGHT : undefined};
     height: 185px;
     justify-content: center;
+    margin-bottom: -15px;
 `;
 
 export const ContainerStatistics = styled.View`
@@ -25,6 +26,8 @@ export const ContainerStatistics = styled.View`
         background-color: ${useTheme().COLORS.GRAY_700 };
     `}
     flex: 1;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 `;
 
 export const StatisticsText = styled.Text`
