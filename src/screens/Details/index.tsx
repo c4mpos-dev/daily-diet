@@ -1,12 +1,21 @@
 import { Percentage } from '@components/Percentage';
-import { Container, ContainerPercentage, ContainerStatistics, DetailHeader, DietContainer, DietDesciption, DietsInfoContainer, DietText, OffDietContainer, OffDietDesciption, OffDietText, RegisteredContainer, RegisteredDesciption, RegisteredText, SequenceContainer, SequenceDesciption, SequenceText, StatisticsText } from './styles';
+import { HeaderStyleProps, Container, ContainerPercentage, ContainerStatistics, DetailHeader, DietContainer, DietDesciption, DietsInfoContainer, DietText, OffDietContainer, OffDietDesciption, OffDietText, RegisteredContainer, RegisteredDesciption, RegisteredText, SequenceContainer, SequenceDesciption, SequenceText, StatisticsText } from './styles';
 
-export function Details(){
+export function Details(type : HeaderStyleProps){
+    const diet = 32; 
+    const offDiet = 77; 
+    
+    const total = diet + offDiet;
+    const percentage = total > 0 ? (diet / total) * 100 : 0;
+
+    if (percentage > 50) { type = 'PRIMARY' }
+    else { type = 'SECONDARY' }
+
     return(
         <Container>
-            <DetailHeader>
+            <DetailHeader type={type}>
                 <ContainerPercentage>      
-                    <Percentage title='30,21%' back/> 
+                    <Percentage title={`${percentage.toFixed(2)}%`} back/> 
                 </ContainerPercentage>
             </DetailHeader>
             <ContainerStatistics>
@@ -32,7 +41,7 @@ export function Details(){
                 <DietsInfoContainer>
                     <DietContainer>
                         <DietText>
-                            32
+                            {diet}
                         </DietText>
                         <DietDesciption>
                             refeições dentro da dieta
@@ -40,7 +49,7 @@ export function Details(){
                     </DietContainer>
                     <OffDietContainer>
                         <OffDietText>
-                            77
+                            {offDiet}
                         </OffDietText>
                         <OffDietDesciption>
                             refeições fora da dieta

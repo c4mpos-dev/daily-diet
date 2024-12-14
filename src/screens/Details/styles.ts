@@ -1,6 +1,11 @@
-import { PercentageProps } from "@components/Percentage";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styled, { css, useTheme } from "styled-components/native";
+
+export type HeaderStyleProps = 'PRIMARY' | 'SECONDARY' | "TERTIARY";
+
+export type StyleProps = {
+  type: HeaderStyleProps;
+}
 
 export const Container = styled.View`
     flex: 1;
@@ -9,8 +14,8 @@ export const Container = styled.View`
 export const ContainerPercentage = styled(SafeAreaView)`
 `;
 
-export const DetailHeader = styled.View<PercentageProps>`
-    background-color: ${({ type }: PercentageProps) => type === 'PRIMARY' ? useTheme().COLORS.GREEN_LIGHT : type === 'SECONDARY' ? useTheme().COLORS.RED_LIGHT : 'purple'};
+export const DetailHeader = styled.View<StyleProps>`
+    background-color: ${({ type }: StyleProps) => type === 'PRIMARY' ? useTheme().COLORS.GREEN_LIGHT : type === 'SECONDARY' ? useTheme().COLORS.RED_LIGHT : 'purple'};
     height: 185px;
     justify-content: center;
 `;
