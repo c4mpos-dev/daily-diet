@@ -3,7 +3,7 @@ import { TouchableOpacityProps } from 'react-native';
 import { ButtonIconTypeStyleProps, Container, Desciption, StatisticsIcon, Title, BackIcon } from './styles';
 
 export type PercentageProps = TouchableOpacityProps & {
-  title: string
+  title: string;
   type?: ButtonIconTypeStyleProps;
   detail?: boolean;
   back?: boolean;

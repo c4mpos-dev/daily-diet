@@ -6,7 +6,7 @@ export function Details(){
         <Container>
             <DetailHeader>
                 <ContainerPercentage>      
-                    <Percentage title='90,10%' back/> 
+                    <Percentage title='30,21%' back/> 
                 </ContainerPercentage>
             </DetailHeader>
             <ContainerStatistics>
