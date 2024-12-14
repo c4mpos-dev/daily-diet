@@ -1,21 +1,27 @@
 import { Percentage } from '@components/Percentage';
-import { HeaderStyleProps, Container, ContainerPercentage, ContainerStatistics, DetailHeader, DietContainer, DietDesciption, DietsInfoContainer, DietText, OffDietContainer, OffDietDesciption, OffDietText, RegisteredContainer, RegisteredDesciption, RegisteredText, SequenceContainer, SequenceDesciption, SequenceText, StatisticsText } from './styles';
+import { Container, ContainerPercentage, ContainerStatistics, DetailHeader, DietContainer, DietDesciption, DietsInfoContainer, DietText, OffDietContainer, OffDietDesciption, OffDietText, RegisteredContainer, RegisteredDesciption, RegisteredText, SequenceContainer, SequenceDesciption, SequenceText, StatisticsText } from './styles';
+import { useNavigation } from '@react-navigation/native';
 
-export function Details(type : HeaderStyleProps){
+export function Details(){
     const diet = 32; 
     const offDiet = 77; 
     
     const total = diet + offDiet;
     const percentage = total > 0 ? (diet / total) * 100 : 0;
 
-    if (percentage > 50) { type = 'PRIMARY' }
-    else { type = 'SECONDARY' }
+    const calculatedType = percentage > 50 ? 'PRIMARY' : 'SECONDARY';
+
+    const navigation = useNavigation();
+    
+    function handleGoToMain() {
+        navigation.navigate('main');
+    }
 
     return(
         <Container>
-            <DetailHeader type={type}>
+            <DetailHeader type={calculatedType}>
                 <ContainerPercentage>      
-                    <Percentage title={`${percentage.toFixed(2)}%`} back/> 
+                    <Percentage title={`${percentage.toFixed(2)}%`} back onPress={handleGoToMain}/> 
                 </ContainerPercentage>
             </DetailHeader>
             <ContainerStatistics>
