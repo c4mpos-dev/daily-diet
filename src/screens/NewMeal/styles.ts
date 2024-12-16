@@ -6,16 +6,19 @@ export const Container = styled.View`
     flex: 1;
 `;
 
-export const ContainerNewMealHeader = styled(SafeAreaView)`
-`;
-
-export const NewMealHeader = styled.View`
+export const NewMealHeader = styled.TouchableOpacity`
     ${() => css`
         background-color: ${useTheme().COLORS.GRAY_500};
     `}
     height: 140px;
     justify-content: center;
     margin-bottom: -15px;
+`;
+
+export const ContainerNewMealHeader = styled(SafeAreaView)`
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 `;
 
 export const ContainerNewMealInfo = styled.View`
@@ -31,4 +34,29 @@ export const BackIcon = styled(ArrowLeft)`
     ${() => css`
         color: ${useTheme().COLORS.GRAY_200};
     `}
+    margin-left: 24px; 
+`;
+
+export const Title = styled.Text`
+    ${() => css`
+        color: ${useTheme().COLORS.GRAY_100};
+        font-size: ${useTheme().FONT_SIZE.LG}px;
+        font-family: ${useTheme().FONT_FAMILY.BOLD};
+    `}
+    flex: 1;
+    text-align: center;
+    margin-right: 48px;
+`;
+
+export const ContainerName = styled.View`
+
+`;
+
+export const TextName = styled.Text`
+    ${() => css`
+        color: ${useTheme().COLORS.GRAY_200};
+        font-size: ${useTheme().FONT_SIZE.SM}px;
+        font-family: ${useTheme().FONT_FAMILY.BOLD};
+    `}
+    margin: 45px 0 0 24px;
 `;
