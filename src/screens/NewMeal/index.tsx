@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { Platform, Pressable } from 'react-native';
 import DateTimePicker, { DateTimePickerEvent, DateTimePickerAndroid } from '@react-native-community/datetimepicker';
-import { BackIcon, Container, ContainerDateTime, ContainerDescription, ContainerName, ContainerNewMealHeader, ContainerNewMealInfo, DateTimeContent, Label, NewMealHeader, Title } from './styles';
+import { BackIcon, Container, ContainerDateTime, ContainerDescription, ContainerName, ContainerNewMealHeader, ContainerNewMealInfo, DateTimeContent, Label, NewMealHeader, OptionContainer, OptionContent, Title } from './styles';
 import { useNavigation } from '@react-navigation/native';
 import { Input } from '@components/Input';
 import { dateFormat } from 'src/Utils/dateFormat';
+import { SelectButton } from '@components/SelectButton';
 
 export function NewMeal() {
     const [date, setDate] = useState(new Date());
     const [showIOSPicker, setShowIOSPicker] = useState(false); // Apenas para iOS
     const [mode, setMode] = useState<'date' | 'time'>('date'); // Controle de modo
+    const [isMealOnDiet, setIsMealOnDiet] = useState<boolean | null>(null);
     const navigation = useNavigation();
 
     function handleGoToMain() {
@@ -70,7 +72,7 @@ export function NewMeal() {
                             showSoftInputOnFocus={false} // Impede abertura do teclado
                             value={dateFormat(date.getTime(), 'date')}
                             onPressIn={() => openDateTimePicker('date')}
-                            caretHidden={true}
+                            caretHidden={true} // Deixa a animação de digitação invisível
                         />
                     </DateTimeContent>
 
@@ -81,7 +83,7 @@ export function NewMeal() {
                             showSoftInputOnFocus={false} // Impede abertura do teclado
                             value={dateFormat(date.getTime(), 'time')}
                             onPressIn={() => openDateTimePicker('time')}
-                            caretHidden={true}
+                            caretHidden={true} // Deixa a animação de digitação invisível
                         />
                     </DateTimeContent>
                 </ContainerDateTime>
@@ -95,6 +97,25 @@ export function NewMeal() {
                         onChange={handleChange}
                     />
                 )}
+
+                <OptionContainer>
+                    <Label>Está dentro da dieta?</Label>
+                    <OptionContent>
+                        <SelectButton 
+                            title='Sim' 
+                            type='PRIMARY'
+                            onPress={() => setIsMealOnDiet(true)}
+                            isActive={isMealOnDiet === true}
+                        />
+
+                        <SelectButton 
+                            title='Não' 
+                            type='SECONDARY'
+                            onPress={() => setIsMealOnDiet(false)}
+                            isActive={isMealOnDiet === false}
+                        />
+                    </OptionContent>
+                </OptionContainer>
             </ContainerNewMealInfo>
         </Container>
     );

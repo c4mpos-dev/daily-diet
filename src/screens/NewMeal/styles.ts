@@ -73,10 +73,23 @@ export const ContainerDateTime = styled.View`
     height: fit-content;
     flex-direction: row;
     gap: 20px;
-    margin-bottom: 28px;
+    margin-bottom: 40px;
 `
 
 export const DateTimeContent = styled.View`
     flex: 1;
     gap: 4px;
+`
+
+export const OptionContainer = styled.View`
+    flex: 1;
+    gap: 4px;
+    margin-top: 20px;
+`
+
+export const OptionContent = styled.View`
+    width: 100%;
+    flex-direction: row;
+    gap: 20px;
+    flex: 1;
 `
