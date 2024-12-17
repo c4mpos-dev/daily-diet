@@ -1,5 +1,5 @@
 import { StatusBar } from 'react-native';
-import { BackIcon, Container, ContainerName, ContainerNewMealHeader, ContainerNewMealInfo, NewMealHeader, TextName, Title } from './styles';
+import { BackIcon, Container, ContainerName, ContainerNewMealHeader, ContainerNewMealInfo, InputName, NewMealHeader, TextName, Title } from './styles';
 import { useNavigation } from '@react-navigation/native';
 
 export function NewMeal(){
@@ -25,6 +25,8 @@ export function NewMeal(){
                     <TextName>
                         Nome
                     </TextName>
+                    <InputName>
+                    </InputName>
                 </ContainerName>
             </ContainerNewMealInfo>
         </Container>

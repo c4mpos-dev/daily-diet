@@ -60,3 +60,17 @@ export const TextName = styled.Text`
     `}
     margin: 45px 0 0 24px;
 `;
+
+export const InputName = styled.TextInput`
+    ${() => css`
+        color: ${useTheme().COLORS.GRAY_200};
+        font-size: ${useTheme().FONT_SIZE.LG}px;
+        font-family: ${useTheme().FONT_FAMILY.REGULAR};
+        border-color:  ${useTheme().COLORS.GRAY_500};
+    `}
+    height: 48px;
+    margin: 4px 24px 0 24px;
+    border-width: 1px;
+    border-radius: 6px;
+    padding: 0 15px 0 15px;
+`;
