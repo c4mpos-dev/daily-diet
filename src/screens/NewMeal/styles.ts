@@ -28,6 +28,7 @@ export const ContainerNewMealInfo = styled.View`
     flex: 1;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
+    padding: 0 24px;
 `;
 
 export const BackIcon = styled(ArrowLeft)`
@@ -48,29 +49,21 @@ export const Title = styled.Text`
     margin-right: 48px;
 `;
 
+export const Label = styled.Text`
+  ${() => css`
+    font-size: ${useTheme().FONT_SIZE.MD}px;
+    color: ${useTheme().COLORS.GRAY_200};
+    font-family: ${useTheme().FONT_FAMILY.BOLD};
+    margin-top: 30px;
+  `}
+`
+
 export const ContainerName = styled.View`
-
+    height: 100px;
+    gap: 4px;
 `;
 
-export const TextName = styled.Text`
-    ${() => css`
-        color: ${useTheme().COLORS.GRAY_200};
-        font-size: ${useTheme().FONT_SIZE.SM}px;
-        font-family: ${useTheme().FONT_FAMILY.BOLD};
-    `}
-    margin: 45px 0 0 24px;
-`;
-
-export const InputName = styled.TextInput`
-    ${() => css`
-        color: ${useTheme().COLORS.GRAY_200};
-        font-size: ${useTheme().FONT_SIZE.LG}px;
-        font-family: ${useTheme().FONT_FAMILY.REGULAR};
-        border-color:  ${useTheme().COLORS.GRAY_500};
-    `}
-    height: 48px;
-    margin: 4px 24px 0 24px;
-    border-width: 1px;
-    border-radius: 6px;
-    padding: 0 15px 0 15px;
-`;
+export const ContainerDescription = styled.View`
+  height: 170px;
+  gap: 4px;
+`
