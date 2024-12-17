@@ -64,6 +64,19 @@ export const ContainerName = styled.View`
 `;
 
 export const ContainerDescription = styled.View`
-  height: 170px;
-  gap: 4px;
+    height: 170px;
+    gap: 4px;
+`
+
+export const ContainerDateTime = styled.View`
+    width: 100%;
+    height: fit-content;
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 28px;
+`
+
+export const DateTimeContent = styled.View`
+    flex: 1;
+    gap: 4px;
 `
