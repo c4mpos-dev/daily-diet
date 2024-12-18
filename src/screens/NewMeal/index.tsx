@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Platform, Pressable } from 'react-native';
-import DateTimePicker, { DateTimePickerEvent, DateTimePickerAndroid } from '@react-native-community/datetimepicker';
+import { DateTimePickerEvent, DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import { BackIcon, Container, ContainerDateTime, ContainerDescription, ContainerName, ContainerNewMealHeader, ContainerNewMealInfo, DateTimeContent, Label, NewMealHeader, OptionContainer, OptionContent, Title } from './styles';
 import { useNavigation } from '@react-navigation/native';
 import { Input } from '@components/Input';
@@ -8,9 +7,7 @@ import { dateFormat } from 'src/Utils/dateFormat';
 import { SelectButton } from '@components/SelectButton';
 
 export function NewMeal() {
-    const [date, setDate] = useState(new Date());
-    const [showIOSPicker, setShowIOSPicker] = useState(false); // Apenas para iOS
-    const [mode, setMode] = useState<'date' | 'time'>('date'); // Controle de modo
+    const [date, setDate] = useState<number>(new Date().getTime());
     const [isMealOnDiet, setIsMealOnDiet] = useState<boolean | null>(null);
     const navigation = useNavigation();
 
@@ -18,35 +15,24 @@ export function NewMeal() {
         navigation.navigate('main');
     }
 
-    function handleChange(event: DateTimePickerEvent, selectedDate?: Date) {
-        if (selectedDate) {
-            setDate(selectedDate);
-        }
-        setShowIOSPicker(false); // Fecha o picker no iOS
+    function onChange(evt: DateTimePickerEvent, selectedDate?: Date) {
+        const formatedDate = selectedDate!.getTime();
+        setDate(formatedDate);
     }
 
-    function openDateTimePicker(currentMode: 'date' | 'time') {
-        setMode(currentMode);
-
-        if (Platform.OS === 'android') {
-            // Exibe o picker para Android
-            DateTimePickerAndroid.open({
-                value: date,
-                mode: currentMode,
-                is24Hour: true,
-                onChange: (_, selectedDate) => {
-                    if (selectedDate) setDate(selectedDate);
-                },
-            });
-        } else {
-            // Mostra o picker para iOS
-            setShowIOSPicker(true);
-        }
+    function openDateTimePicker(mode: 'date' | 'time') {
+        DateTimePickerAndroid.open({
+            value: new Date(date),
+            onChange,
+            mode,
+            is24Hour: true,
+            display: "spinner"
+        });
     }
 
     return (
         <Container>
-            <NewMealHeader>
+            <NewMealHeader onPress={handleGoToMain}>
                 <ContainerNewMealHeader>
                     <BackIcon />
                     <Title>Nova Refeição</Title>
@@ -61,7 +47,7 @@ export function NewMeal() {
 
                 <ContainerDescription>
                     <Label>Descrição</Label>
-                    <Input multiline textAlignVertical="top" style={{ height: 140 }} />
+                    <Input multiline textAlignVertical="top" style={{ height: 140 }}/>
                 </ContainerDescription>
 
                 <ContainerDateTime>
@@ -70,7 +56,7 @@ export function NewMeal() {
                         <Label>Data</Label>
                         <Input
                             showSoftInputOnFocus={false} // Impede abertura do teclado
-                            value={dateFormat(date.getTime(), 'date')}
+                            defaultValue={dateFormat(date, 'date')}
                             onPressIn={() => openDateTimePicker('date')}
                             caretHidden={true} // Deixa a animação de digitação invisível
                         />
@@ -81,22 +67,12 @@ export function NewMeal() {
                         <Label>Hora</Label>
                         <Input
                             showSoftInputOnFocus={false} // Impede abertura do teclado
-                            value={dateFormat(date.getTime(), 'time')}
+                            defaultValue={dateFormat(date, 'time')}
                             onPressIn={() => openDateTimePicker('time')}
                             caretHidden={true} // Deixa a animação de digitação invisível
                         />
                     </DateTimeContent>
                 </ContainerDateTime>
-
-                {/* Picker para iOS */}
-                {showIOSPicker && Platform.OS === 'ios' && (
-                    <DateTimePicker
-                        value={date}
-                        mode={mode}
-                        display="spinner"
-                        onChange={handleChange}
-                    />
-                )}
 
                 <OptionContainer>
                     <Label>Está dentro da dieta?</Label>

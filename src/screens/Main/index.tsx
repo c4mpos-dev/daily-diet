@@ -10,6 +10,11 @@ export function Main(){
         navigation.navigate('details');
     }
 
+    function handleGoToNewMeal() {
+        navigation.navigate('new');
+    }
+
+
     return(
         <Container>
             <Header/>
@@ -17,7 +22,7 @@ export function Main(){
             <MealText>
                 Refeições
             </MealText>
-            <NewMealButton>
+            <NewMealButton onPress={handleGoToNewMeal}>
                 <NewMealIcon size={18}/>
                 <NewMealText>
                     Nova Refeição

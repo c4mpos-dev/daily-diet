@@ -54,9 +54,9 @@ export const Label = styled.Text`
     font-size: ${useTheme().FONT_SIZE.MD}px;
     color: ${useTheme().COLORS.GRAY_200};
     font-family: ${useTheme().FONT_FAMILY.BOLD};
-    margin-top: 30px;
   `}
-`
+    margin-top: 30px;
+`;
 
 export const ContainerName = styled.View`
     height: 100px;
@@ -66,30 +66,30 @@ export const ContainerName = styled.View`
 export const ContainerDescription = styled.View`
     height: 170px;
     gap: 4px;
-`
+`;
 
 export const ContainerDateTime = styled.View`
     width: 100%;
-    height: fit-content;
+    height: 125px;
     flex-direction: row;
     gap: 20px;
-    margin-bottom: 40px;
-`
+`;
 
 export const DateTimeContent = styled.View`
     flex: 1;
     gap: 4px;
-`
+    max-height: 120px;
+`;
 
 export const OptionContainer = styled.View`
+    width: 100%;
     flex: 1;
     gap: 4px;
-    margin-top: 20px;
-`
+`;
 
 export const OptionContent = styled.View`
     width: 100%;
     flex-direction: row;
     gap: 20px;
     flex: 1;
-`
+`;

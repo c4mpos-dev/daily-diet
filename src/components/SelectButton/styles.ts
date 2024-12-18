@@ -10,7 +10,6 @@ type Props = ButtonDietTypeStyleProps;
 
 export const Container = styled.TouchableOpacity<Props>`
     flex: 1;
-    height: 50px;
     min-height: 56px;
     max-height: 56px;
     border-radius: 6px;
