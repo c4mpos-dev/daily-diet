@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Input } from '@components/Input';
 import { dateFormat } from 'src/Utils/dateFormat';
 import { SelectButton } from '@components/SelectButton';
+import { Button } from '@components/Button';
 
 export function NewMeal() {
     const [date, setDate] = useState<number>(new Date().getTime());
@@ -26,7 +27,7 @@ export function NewMeal() {
             onChange,
             mode,
             is24Hour: true,
-            display: "spinner"
+            display: "default"
         });
     }
 
@@ -91,6 +92,11 @@ export function NewMeal() {
                             isActive={isMealOnDiet === false}
                         />
                     </OptionContent>
+
+                    <Button
+                        style={{marginBottom: 40}}
+                        title='Cadastrar refeição'
+                    />
                 </OptionContainer>
             </ContainerNewMealInfo>
         </Container>
