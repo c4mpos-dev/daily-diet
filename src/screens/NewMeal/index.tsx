@@ -16,6 +16,10 @@ export function NewMeal() {
         navigation.navigate('main');
     }
 
+    function handleGoToFeedback() {
+        navigation.navigate('feedback', { isOnDiet: isMealOnDiet ? true : false });
+    }
+
     function onChange(evt: DateTimePickerEvent, selectedDate?: Date) {
         const formatedDate = selectedDate!.getTime();
         setDate(formatedDate);
@@ -96,6 +100,7 @@ export function NewMeal() {
                     <Button
                         style={{marginBottom: 40}}
                         title='Cadastrar refeição'
+                        onPress={handleGoToFeedback}
                     />
                 </OptionContainer>
             </ContainerNewMealInfo>

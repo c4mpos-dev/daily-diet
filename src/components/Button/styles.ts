@@ -9,9 +9,9 @@ type ButtonStyleProps = {
 
 export const Container = styled(TouchableOpacity)<ButtonStyleProps>`
     ${({ variant }: ButtonStyleProps) => css`
-        background-color: ${variant === 'DEFAULT' ? useTheme().COLORS.GRAY_200 : 'transparent'};
+        background-color: ${ variant === 'DEFAULT' ? useTheme().COLORS.GRAY_200 : 'transparent' };
         border: 1px solid
-        ${variant === 'DEFAULT' ? 'transparent' : useTheme().COLORS.WHITE};
+        ${ variant === 'DEFAULT' ? 'transparent' : useTheme().COLORS.WHITE };
     `}
     flex-direction: row;
     gap: 12px;
@@ -25,10 +25,7 @@ export const Container = styled(TouchableOpacity)<ButtonStyleProps>`
 
 export const Title = styled.Text<ButtonStyleProps>`
     ${({ variant }: ButtonStyleProps) => css`
-        color: ${variant === 'DEFAULT'
-        ? useTheme().COLORS.WHITE
-        : useTheme().COLORS.GRAY_200
-        };
+        color: ${variant === 'DEFAULT' ? useTheme().COLORS.WHITE : useTheme().COLORS.GRAY_200 };
         font-size: ${useTheme().FONT_SIZE.MD}px;
         font-family: ${useTheme().FONT_FAMILY.BOLD};
     `}
