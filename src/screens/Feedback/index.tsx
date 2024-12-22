@@ -23,10 +23,7 @@ export function Feedback() {
   
     return (
         <Container>   
-            {isOnDiet === true ? (
-                <Title> Continue assim!</Title>) : (
-                <Title style={{color: '#BF3B44'}}>Que pena!</Title>
-            )}
+            { isOnDiet === true ? (<Title> Continue assim! </Title>) : (<Title style={{color: '#BF3B44'}}>Que pena!</Title> )}
 
             <Description>
                 {isOnDiet === true ? 'Você continua' : 'Você'}
@@ -37,14 +34,12 @@ export function Feedback() {
                 {isOnDiet === true ? 'Muito bem!' : 'dessa vez, mas continue se esforçando e não desista!'}
             </Description>
 
-
             <Illustration source={isOnDiet === true ? SuccessImg : FailImg }/>
 
             <Button 
                 onPress={handleGoMain}
                 title='Ir para a página inicial' 
             />
-        
         </Container>
     );
 }

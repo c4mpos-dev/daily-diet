@@ -17,20 +17,20 @@ export const Illustration = styled.Image`
     margin-bottom: 32px;
 `;
 
-export const Title = styled.Text`
-  ${() => css`
-        font-size: ${useTheme().FONT_SIZE.XL}px;
-        color: ${useTheme().COLORS.GREEN_DARK};
-        font-family: ${useTheme().FONT_FAMILY.BOLD};
-  `}
-`
-
 export const Description = styled.Text`
-  ${() => css`
+    ${() => css`
         font-size: ${useTheme().FONT_SIZE.LG}px;
         color: ${useTheme().COLORS.GRAY_200};
         font-family: ${useTheme().FONT_FAMILY.REGULAR};
         margin: 12px 0 40px 0;
-        text-align: center;
     `}
-`
+    text-align: center;
+`;
+
+export const Title = styled.Text`
+    ${() => css`
+        font-size: ${useTheme().FONT_SIZE.XL}px;
+        color: ${useTheme().COLORS.GREEN_DARK};
+        font-family: ${useTheme().FONT_FAMILY.BOLD};
+    `}
+`;
