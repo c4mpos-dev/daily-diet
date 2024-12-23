@@ -11,7 +11,7 @@ export const Container = styled.TouchableOpacity`
     flex-direction: row;
     margin-top: 8px;
 
-    border: ${() => useTheme().COLORS.GRAY_400} 1px;
+    border: ${() => useTheme().COLORS.GRAY_500} 1px;
 
     padding: 14px;
     border-radius: 6px;
@@ -26,7 +26,7 @@ export const InfoContainer = styled.View`
 export const HourText = styled.Text`
     ${() => css`
         font-size: ${useTheme().FONT_SIZE.MD}px;
-        color: ${useTheme().COLORS.GRAY_200};
+        color: ${useTheme().COLORS.GRAY_100};
         font-family: ${useTheme().FONT_FAMILY.BOLD};
         padding-right: 12px;
     `}
@@ -40,7 +40,7 @@ export const Separator = styled.View`
 export const MealText = styled.Text`
     ${() => css`
         font-size: ${useTheme().FONT_SIZE.LG}px;
-        color: ${useTheme().COLORS.GRAY_600};
+        color: ${useTheme().COLORS.GRAY_200};
         padding-left: 12px;
         font-family: ${useTheme().FONT_FAMILY.REGULAR};
     `}

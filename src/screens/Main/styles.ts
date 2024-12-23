@@ -16,7 +16,7 @@ export const MealText = styled.Text`
 export const DateTitle = styled.Text`
     ${() => css`
         font-size: ${useTheme().FONT_SIZE.LG}px;
-        color: ${useTheme().COLORS.GRAY_700};
+        color: ${useTheme().COLORS.GRAY_100};
         font-family: ${useTheme().FONT_FAMILY.BOLD};
         margin-top: 30px;
     `}

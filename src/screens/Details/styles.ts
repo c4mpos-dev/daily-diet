@@ -12,6 +12,7 @@ export const Container = styled.View`
 `;
 
 export const ContainerPercentage = styled(SafeAreaView)`
+    padding: 0 24px;
 `;
 
 export const DetailHeader = styled.View<StyleProps>`

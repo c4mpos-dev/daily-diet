@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import { DateTimePickerEvent, DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import { BackIcon, Container, ContainerDateTime, ContainerDescription, ContainerName, ContainerNewMealHeader, ContainerNewMealInfo, DateTimeContent, Label, NewMealHeader, OptionContainer, OptionContent, Title } from './styles';
 import { useNavigation } from '@react-navigation/native';
@@ -6,18 +6,20 @@ import { Input } from '@components/Input';
 import { dateFormat } from 'src/Utils/dateFormat';
 import { SelectButton } from '@components/SelectButton';
 import { Button } from '@components/Button';
+import { Alert } from 'react-native';
+import { mealCreate } from '@storage/meal/mealCreate';
 
 export function NewMeal() {
     const [date, setDate] = useState<number>(new Date().getTime());
     const [isMealOnDiet, setIsMealOnDiet] = useState<boolean | null>(null);
+    const [mealDescription, setMealDescription] = useState('');
+    const [mealName, setMealName] = useState('');
+
+    const mealId = useId();
     const navigation = useNavigation();
 
     function handleGoToMain() {
         navigation.navigate('main');
-    }
-
-    function handleGoToFeedback() {
-        navigation.navigate('feedback', { isOnDiet: isMealOnDiet ? true : false });
     }
 
     function onChange(evt: DateTimePickerEvent, selectedDate?: Date) {
@@ -35,6 +37,37 @@ export function NewMeal() {
         });
     }
 
+    async function handleCreateNewMeal() {
+        if (mealName.trim().length === 0 || mealDescription.trim().length === 0) {
+          return Alert.alert('Nova Refeição', 'Preencha o nome e a descrição.');
+        }
+    
+        if (isMealOnDiet == null) {
+          return Alert.alert(
+            'Nova Refeição',
+            'Selecione se está dentro ou fora da dieta.'
+          );
+        }
+    
+        const newMeal = {
+            id: mealId,
+            title: mealName,
+            description: mealDescription,
+            date: date,
+            isOnDiet: isMealOnDiet ? true : false,
+        };
+    
+        try {
+            await mealCreate(newMeal);
+            navigation.navigate('main');
+        } catch (error) {
+            console.log(error);
+            Alert.alert('Criar refeição', 'Não foi possível criar a refeição.');
+        }
+    
+        navigation.navigate('feedback', { isOnDiet: isMealOnDiet ? true : false });
+      }
+
     return (
         <Container>
             <NewMealHeader onPress={handleGoToMain}>
@@ -47,12 +80,22 @@ export function NewMeal() {
             <ContainerNewMealInfo>
                 <ContainerName>
                     <Label>Nome</Label>
-                    <Input />
+                    <Input 
+                        onChangeText={setMealName}
+                        value={mealName}
+                    />
                 </ContainerName>
 
                 <ContainerDescription>
                     <Label>Descrição</Label>
-                    <Input multiline textAlignVertical="top" style={{ height: 140 }}/>
+                    <Input 
+                        multiline 
+                        textAlignVertical="top" 
+                        style={{ height: 140 }}
+                        maxLength={220}
+                        onChangeText={setMealDescription}
+                        value={mealDescription}
+                    />
                 </ContainerDescription>
 
                 <ContainerDateTime>
@@ -100,7 +143,7 @@ export function NewMeal() {
                     <Button
                         style={{marginBottom: 40}}
                         title='Cadastrar refeição'
-                        onPress={handleGoToFeedback}
+                        onPress={handleCreateNewMeal}
                     />
                 </OptionContainer>
             </ContainerNewMealInfo>

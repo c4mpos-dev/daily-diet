@@ -1,17 +1,20 @@
-import { SectionList } from 'react-native';
+import React, { useCallback, useState } from 'react';
+import { Alert, SectionList } from 'react-native';
 import { Container, DateTitle, MealText } from './styles';
 import { useTheme } from 'styled-components/native';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { Plus } from 'phosphor-react-native';
 
 import { Percentage } from '@components/Percentage';
 import { Header } from '@components/Header';
 import { Button } from '@components/Button';
 import { Meal } from '@components/Meal';
+import { EmptyList } from '@components/EmptyList';
 
 import { dateFormat } from 'src/Utils/dateFormat';
-import React, { useState } from 'react';
-import { EmptyList } from '@components/EmptyList';
+import { percentageFormat } from 'src/Utils/percentageFormat';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { MEAL_COLLECTION } from '@storage/storageConfig';
 
 export type MealType= {
     id: string;
@@ -31,6 +34,16 @@ export function Main(){
     const navigation = useNavigation();
     const { COLORS } = useTheme();
 
+    const meals = meal.map((meal) => meal.data).flat();
+
+    const totalMealsInDiet = meals.filter((meal) => meal.isOnDiet).length;
+    const totalMeals = meals.length;
+
+    const formattedPercentageInDiet = percentageFormat(
+        totalMealsInDiet,
+        totalMeals
+    );
+
     function handleGoToStatistics() {
         navigation.navigate('details');
     }
@@ -43,12 +56,30 @@ export function Main(){
         navigation.navigate('meal', { meal });
     }
 
+    useFocusEffect(
+        useCallback(() => {
+            async function fetchMeals() {
+                try {
+                    const storageData = await AsyncStorage.getItem(MEAL_COLLECTION);
+                    const parsedData = storageData ? JSON.parse(storageData) : [];
+            
+                    const formattedData = parsedData.reverse();
+                    setMeal(formattedData);
+
+                } catch (error) {
+                    console.log(error);
+                    Alert.alert('Dados', 'Não foi possível recuperar os dados.');
+                }
+            }
+            fetchMeals();
+        }, [])
+    );
 
     return(
         <Container>
             <Header/>
 
-            <Percentage title='40,10%' detail onPress={handleGoToStatistics}/>
+            <Percentage title={totalMeals > 0 ? formattedPercentageInDiet : '0,00%'}  detail onPress={handleGoToStatistics}/>
 
             <MealText>
                 Refeições
@@ -64,15 +95,15 @@ export function Main(){
                 sections={meal}
                 keyExtractor={(meal, index) => meal.title + index}
                 renderItem={({ item: meal }) => (
-                <Meal
-                    title={meal.title}
-                    time={dateFormat(meal.date, 'time')}
-                    status={meal.isOnDiet ? true : false}
-                    onPress={() => handleGoToMeal(meal)}
-                />
+                    <Meal
+                        title={meal.title}
+                        time={dateFormat(meal.date, 'time')}
+                        status={meal.isOnDiet ? true : false}
+                        onPress={() => handleGoToMeal(meal)}
+                    />
                 )}
                 renderSectionHeader={({ section: { title } }) => (
-                <DateTitle>{title.replace(/\//g, ".")}</DateTitle>
+                    <DateTitle>{title.replace(/\//g, ".")}</DateTitle>
                 )}
                 fadingEdgeLength={200}
                 ListEmptyComponent={ <EmptyList /> }
