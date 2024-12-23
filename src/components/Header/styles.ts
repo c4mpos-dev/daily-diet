@@ -1,7 +1,7 @@
 import styled, {useTheme} from 'styled-components/native';
 
 export const Container = styled.View`
-    margin: 15px 24px 0 24px;
+    margin-top: 15px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;

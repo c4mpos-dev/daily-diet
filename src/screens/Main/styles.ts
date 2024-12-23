@@ -1,8 +1,8 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import styled, { css, useTheme } from "styled-components/native";
-import { Plus } from "phosphor-react-native";
 
 export const Container = styled(SafeAreaView)`
+    padding: 0 24px;
 `;
 
 export const MealText = styled.Text`
@@ -10,33 +10,14 @@ export const MealText = styled.Text`
         font-size: ${useTheme().FONT_SIZE.MD}px;
         font-family: ${useTheme().FONT_FAMILY.REGULAR};
     `}
-    margin: 30px 0 0 24px;
+    margin-top: 30px;
 `;
 
-export const NewMealButton = styled.TouchableOpacity`
+export const DateTitle = styled.Text`
     ${() => css`
-        background-color: ${useTheme().COLORS.GRAY_200};
-    `}
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    border-radius: 6px;
-    margin: 5px 24px 0 24px;
-    gap: 12px;
-`;
-
-export const NewMealText = styled.Text`
-    ${() => css`
-        font-size: ${useTheme().FONT_SIZE.SM}px;
+        font-size: ${useTheme().FONT_SIZE.LG}px;
+        color: ${useTheme().COLORS.GRAY_700};
         font-family: ${useTheme().FONT_FAMILY.BOLD};
-        color: ${useTheme().COLORS.WHITE};
-    `}
-    text-align: center;
-`;
-
-export const NewMealIcon = styled(Plus)`
-    ${() => css`
-        color: ${useTheme().COLORS.WHITE};
+        margin-top: 30px;
     `}
 `;

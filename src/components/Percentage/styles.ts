@@ -12,7 +12,7 @@ export const Container = styled(TouchableOpacity)<ButtonIconStyleProps>`
   justify-content: center;
   align-items: center;
   height: 102px;
-  margin: 20px 24px 0 24px;
+  margin-top: 20px;
   border-radius: 8px;
   background-color: ${({ type }: ButtonIconStyleProps) => type === 'PRIMARY' ? useTheme().COLORS.GREEN_LIGHT : type === 'SECONDARY' ? useTheme().COLORS.RED_LIGHT : undefined};
 `;
