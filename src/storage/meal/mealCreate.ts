@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { MealProps, MealType } from '@screens/Main';
 import { MEAL_COLLECTION } from '@storage/storageConfig';
-import { dateFormat } from 'src/Utils/dateFormat';
+import { dateFormat } from '@utils/dateFormat';
 import { mealsGetAll } from './mealsGetAll';
 
 export async function mealCreate(newMeal: MealType) {

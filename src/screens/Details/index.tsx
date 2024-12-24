@@ -4,8 +4,8 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { useCallback, useState } from 'react';
 import { MealProps } from '@screens/Main';
 import { mealsGetAll } from '@storage/meal/mealsGetAll';
-import { bestStreak } from 'src/Utils/bestStreak';
-import { percentageFormat } from 'src/Utils/percentageFormat';
+import { bestStreak } from '@utils/bestStreak';
+import { percentageFormat } from '@utils/percentageFormat';
 
 export function Details(){
     const [data, setData] = useState<MealProps[]>([]);

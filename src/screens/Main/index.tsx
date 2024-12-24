@@ -11,8 +11,8 @@ import { Button } from '@components/Button';
 import { Meal } from '@components/Meal';
 import { EmptyList } from '@components/EmptyList';
 
-import { dateFormat } from 'src/Utils/dateFormat';
-import { percentageFormat } from 'src/Utils/percentageFormat';
+import { dateFormat } from '@utils/dateFormat';
+import { percentageFormat } from '@utils/percentageFormat';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { MEAL_COLLECTION } from '@storage/storageConfig';
 
@@ -32,7 +32,6 @@ export interface MealProps {
 export function Main(){
     const [meal, setMeal] = useState<MealProps[]>([]);
     const navigation = useNavigation();
-    const { COLORS } = useTheme();
 
     const meals = meal.map((meal) => meal.data).flat();
 

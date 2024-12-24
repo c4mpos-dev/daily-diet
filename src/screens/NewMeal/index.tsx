@@ -3,7 +3,7 @@ import { DateTimePickerEvent, DateTimePickerAndroid } from '@react-native-commun
 import { BackIcon, Container, ContainerDateTime, ContainerDescription, ContainerName, ContainerNewMealHeader, ContainerNewMealInfo, DateTimeContent, Label, NewMealHeader, OptionContainer, OptionContent, Title } from './styles';
 import { useNavigation } from '@react-navigation/native';
 import { Input } from '@components/Input';
-import { dateFormat } from 'src/Utils/dateFormat';
+import { dateFormat } from '@utils/dateFormat';
 import { SelectButton } from '@components/SelectButton';
 import { Button } from '@components/Button';
 import { Alert } from 'react-native';

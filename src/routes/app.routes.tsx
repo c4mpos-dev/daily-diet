@@ -3,7 +3,7 @@ import { Main } from "@screens/Main"
 import { Details } from "@screens/Details"
 import { NewMeal } from "@screens/NewMeal";
 import { Feedback } from "@screens/Feedback";
-import { Meal } from "@components/Meal";
+import { Meal } from "@screens/Meal";
 
 
 const { Navigator, Screen } = createNativeStackNavigator();

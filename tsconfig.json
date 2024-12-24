@@ -23,7 +23,7 @@
         "./src/theme/*"
       ],
       "@utils/*": [
-        "./src/utils/*"
+        "src/utils/*"
       ]
     }
   },
