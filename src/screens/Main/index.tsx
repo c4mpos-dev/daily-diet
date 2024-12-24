@@ -105,9 +105,10 @@ export function Main(){
                 renderSectionHeader={({ section: { title } }) => (
                     <DateTitle>{title.replace(/\//g, ".")}</DateTitle>
                 )}
-                fadingEdgeLength={200}
+                fadingEdgeLength={300}
                 ListEmptyComponent={ <EmptyList /> }
                 showsVerticalScrollIndicator={false}
+                style={{marginBottom: 10}}
             />
 
         </Container>

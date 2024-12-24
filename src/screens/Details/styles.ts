@@ -56,6 +56,7 @@ export const SequenceText = styled.Text`
     ${() => css`
         font-size: ${useTheme().FONT_SIZE.XL}px;
         font-family: ${useTheme().FONT_FAMILY.BOLD};
+        color: ${useTheme().COLORS.GRAY_100};
     `}
     margin-top: 13px;
     text-align: center;
@@ -65,6 +66,7 @@ export const SequenceDesciption = styled.Text`
     ${() => css`
         font-size: ${useTheme().FONT_SIZE.SM}px;
         font-family: ${useTheme().FONT_FAMILY.REGULAR};
+        color: ${useTheme().COLORS.GRAY_200};
     `}
     margin-bottom: 16px;
     text-align: center;
@@ -86,6 +88,7 @@ export const RegisteredText = styled.Text`
     ${() => css`
         font-size: ${useTheme().FONT_SIZE.XL}px;
         font-family: ${useTheme().FONT_FAMILY.BOLD};
+        color: ${useTheme().COLORS.GRAY_100};
     `}
     margin-top: 13px;
     text-align: center;
@@ -124,6 +127,7 @@ export const DietText = styled.Text`
     ${() => css`
         font-size: ${useTheme().FONT_SIZE.XL}px;
         font-family: ${useTheme().FONT_FAMILY.BOLD};
+        color: ${useTheme().COLORS.GRAY_100};
     `}
     margin-top: 13px;
     text-align: center;
@@ -154,6 +158,7 @@ export const OffDietText = styled.Text`
     ${() => css`
         font-size: ${useTheme().FONT_SIZE.XL}px;
         font-family: ${useTheme().FONT_FAMILY.BOLD};
+        color: ${useTheme().COLORS.GRAY_100};
     `}
     margin-top: 13px;
     text-align: center;

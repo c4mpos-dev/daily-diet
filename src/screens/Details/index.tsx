@@ -1,15 +1,14 @@
 import { Percentage } from '@components/Percentage';
 import { Container, ContainerPercentage, ContainerStatistics, DetailHeader, DietContainer, DietDesciption, DietsInfoContainer, DietText, OffDietContainer, OffDietDesciption, OffDietText, RegisteredContainer, RegisteredDesciption, RegisteredText, SequenceContainer, SequenceDesciption, SequenceText, StatisticsText } from './styles';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { useCallback, useState } from 'react';
+import { MealProps } from '@screens/Main';
+import { mealsGetAll } from '@storage/meal/mealsGetAll';
+import { bestStreak } from 'src/Utils/bestStreak';
+import { percentageFormat } from 'src/Utils/percentageFormat';
 
 export function Details(){
-    const diet = 32; 
-    const offDiet = 77; 
-    
-    const total = diet + offDiet;
-    const percentage = total > 0 ? (diet / total) * 100 : 0;
-
-    const calculatedType = percentage > 50 ? 'PRIMARY' : 'SECONDARY';
+    const [data, setData] = useState<MealProps[]>([]);
 
     const navigation = useNavigation();
     
@@ -17,11 +16,46 @@ export function Details(){
         navigation.navigate('main');
     }
 
+    async function fetchDetails() {
+        try {
+            const fetchData = await mealsGetAll();
+            setData(fetchData);
+        }
+        catch(error) {
+            console.log(error);
+        }
+    }
+
+    useFocusEffect(useCallback(() => {
+        fetchDetails();
+    }, []))
+  
+    const meals = data.map((meal) => meal.data).flat();
+  
+    const bestStreakOnDiet = bestStreak(meals);
+  
+    const totalMeals = meals.length;
+    const totalMealsOnDiet = meals.filter((meal) => meal.isOnDiet).length;
+    const totalMealsOutDiet = meals.length - totalMealsOnDiet;
+  
+    const formattedPercentageInDiet = percentageFormat(
+        totalMealsOnDiet,
+        totalMeals
+    );
+
+    var type = '';
+
+    if(parseFloat(totalMeals > 0 ? formattedPercentageInDiet : '0,00%') <= parseFloat('50,00')) {
+        type="SECONDARY";
+    } else {
+        type="PRIMARY";
+    }
+
     return(
         <Container>
-            <DetailHeader type={calculatedType}>
+            <DetailHeader type={type}>
                 <ContainerPercentage>      
-                    <Percentage title={`${percentage.toFixed(2)}%`} back onPress={handleGoToMain}/> 
+                    <Percentage title={formattedPercentageInDiet} back onPress={handleGoToMain}/> 
                 </ContainerPercentage>
             </DetailHeader>
             <ContainerStatistics>
@@ -30,7 +64,7 @@ export function Details(){
                 </StatisticsText>
                 <SequenceContainer>
                     <SequenceText>
-                        4
+                        {bestStreakOnDiet}
                     </SequenceText>
                     <SequenceDesciption>
                         melhor sequência de pratos dentro da dieta
@@ -38,7 +72,7 @@ export function Details(){
                 </SequenceContainer>
                 <RegisteredContainer>
                     <RegisteredText>
-                        109
+                        {totalMeals}
                     </RegisteredText>
                     <RegisteredDesciption>
                         refeições registradas
@@ -47,7 +81,7 @@ export function Details(){
                 <DietsInfoContainer>
                     <DietContainer>
                         <DietText>
-                            {diet}
+                            {totalMealsOnDiet}
                         </DietText>
                         <DietDesciption>
                             refeições dentro da dieta
@@ -55,7 +89,7 @@ export function Details(){
                     </DietContainer>
                     <OffDietContainer>
                         <OffDietText>
-                            {offDiet}
+                            {totalMealsOutDiet}
                         </OffDietText>
                         <OffDietDesciption>
                             refeições fora da dieta
