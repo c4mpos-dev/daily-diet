@@ -55,25 +55,27 @@ export function Main(){
         navigation.navigate('meal', { meal });
     }
 
+    // AsyncStorage.clear();
+
     useFocusEffect(
         useCallback(() => {
-            async function fetchMeals() {
-                try {
-                    const storageData = await AsyncStorage.getItem(MEAL_COLLECTION);
-                    const parsedData = storageData ? JSON.parse(storageData) : [];
-            
-                    const formattedData = parsedData.reverse();
-                    setMeal(formattedData);
+        async function fetchMeals() {
+            try {
+                const storageData = await AsyncStorage.getItem(MEAL_COLLECTION);
+                const parsedData = storageData ? JSON.parse(storageData) : [];
 
-                } catch (error) {
-                    console.log(error);
-                    Alert.alert('Dados', 'Não foi possível recuperar os dados.');
-                }
+                const formattedData = parsedData.reverse();
+                setMeal(formattedData);
+            } catch (error) {
+                console.log(error);
+                Alert.alert('Dados', 'Não foi possível recuperar os dados.');
             }
-            fetchMeals();
+        }
+        fetchMeals();
         }, [])
     );
 
+    
     return(
         <Container>
             <Header/>
@@ -101,15 +103,21 @@ export function Main(){
                         onPress={() => handleGoToMeal(meal)}
                     />
                 )}
-                renderSectionHeader={({ section: { title } }) => (
-                    <DateTitle>{title.replace(/\//g, ".")}</DateTitle>
-                )}
+                renderSectionHeader={({ section: { title } }) => {
+                    // Aqui, assegure que a data seja formatada corretamente antes de renderizar
+                    const formattedTitle = title.replace(/\//g, ".");
+                    return <DateTitle>{formattedTitle}</DateTitle>;
+                }}
                 fadingEdgeLength={300}
                 ListEmptyComponent={ <EmptyList /> }
                 showsVerticalScrollIndicator={false}
                 style={{marginBottom: 10}}
             />
 
+            
+
         </Container>
     )
+
+    
 }

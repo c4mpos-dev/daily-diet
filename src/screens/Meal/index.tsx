@@ -25,13 +25,15 @@ const navigation = useNavigation()
 
 const { meal } = route.params as RouteParams;
 
+function handleGoToEditMeal() {
+    navigation.navigate('edit', { meal });
+}
+
 function handleGoToMain() {
     navigation.navigate('main');
 }
 
-// function handleGoToEditMeal() {
-//     navigation.navigate('edit', { meal })
-// }
+
 
 return (
     <Container>
@@ -75,7 +77,7 @@ return (
             title='Editar refeição' 
             icon={<PencilLine size={24} color={COLORS.WHITE}/>}
             style={{ marginTop: 'auto' }}
-            onPress={() => {}}
+            onPress={handleGoToEditMeal}
         />
 
         <Button 

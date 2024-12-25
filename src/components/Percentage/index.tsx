@@ -10,10 +10,10 @@ export type PercentageProps = TouchableOpacityProps & {
 }
 
 export function Percentage({title, type, back, detail, ...rest }: PercentageProps) {
-  if(parseFloat(title) <= parseFloat('50,00')) {
-    type="SECONDARY"
-  } else {
+  if(parseFloat(title) >= parseFloat('50,00')) {
     type="PRIMARY"
+  } else {
+    type="SECONDARY"
   }
 
   return (

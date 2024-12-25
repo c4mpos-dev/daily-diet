@@ -45,7 +45,7 @@ export function Details(){
 
     var type = '';
 
-    if(parseFloat(totalMeals > 0 ? formattedPercentageInDiet : '0,00%') <= parseFloat('50,00')) {
+    if(parseFloat(totalMeals > 0 ? formattedPercentageInDiet : '0,00%') < parseFloat('50,00')) {
         type="SECONDARY";
     } else {
         type="PRIMARY";

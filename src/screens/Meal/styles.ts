@@ -11,7 +11,7 @@ export const Container = styled.View`
 `;
 
 export const MealHeader = styled.TouchableOpacity`
-    background-color: ${({ inDiet }: Props) => inDiet === true ? useTheme().COLORS.GREEN_MID : useTheme().COLORS.RED_MID};
+    background-color: ${({ inDiet }: Props) => inDiet === true ? useTheme().COLORS.GREEN_LIGHT : useTheme().COLORS.RED_LIGHT};
     height: 140px;
     justify-content: center;
     margin-bottom: -15px;

@@ -8,6 +8,7 @@ export declare global {
         new: undefined;
         feedback: { isOnDiet: boolean };
         meal: { meal: MealType };
+        edit: { meal: MealType };
     }
   }
 }
