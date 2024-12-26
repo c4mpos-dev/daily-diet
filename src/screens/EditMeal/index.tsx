@@ -105,8 +105,8 @@ export function EditMeal() {
                         <Input
                             showSoftInputOnFocus={false} // Impede abertura do teclado
                             defaultValue={dateFormat(date, 'date')}
-                            onPressIn={() => openDateTimePicker('date')}
-                            caretHidden={true} // Deixa a animação de digitação invisível
+                            readOnly
+                            style={{ backgroundColor: 'rgba(0, 0, 0, 0.1)' }}
                         />
                     </DateTimeContent>
 

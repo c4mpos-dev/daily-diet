@@ -38,10 +38,7 @@ export function Main(){
     const totalMealsInDiet = meals.filter((meal) => meal.isOnDiet).length;
     const totalMeals = meals.length;
 
-    const formattedPercentageInDiet = percentageFormat(
-        totalMealsInDiet,
-        totalMeals
-    );
+    const formattedPercentageInDiet = percentageFormat(totalMealsInDiet, totalMeals);
 
     function handleGoToStatistics() {
         navigation.navigate('details');
@@ -74,7 +71,6 @@ export function Main(){
         fetchMeals();
         }, [])
     );
-
     
     return(
         <Container>
@@ -103,21 +99,14 @@ export function Main(){
                         onPress={() => handleGoToMeal(meal)}
                     />
                 )}
-                renderSectionHeader={({ section: { title } }) => {
-                    // Aqui, assegure que a data seja formatada corretamente antes de renderizar
-                    const formattedTitle = title.replace(/\//g, ".");
-                    return <DateTitle>{formattedTitle}</DateTitle>;
-                }}
+                renderSectionHeader={({ section: { title } }) => (
+                    <DateTitle>{title.replace(/\//g, ".")}</DateTitle>
+                )}
                 fadingEdgeLength={300}
                 ListEmptyComponent={ <EmptyList /> }
                 showsVerticalScrollIndicator={false}
                 style={{marginBottom: 10}}
             />
-
-            
-
         </Container>
-    )
-
-    
+    ) 
 }

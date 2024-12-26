@@ -1,6 +1,4 @@
 import { Container, MealTitle, Title, MealContainer, MealDescription,DateTimeTitle,Tag,TagStatus,TagText, MealHeader, BackIcon, ContainerMealHeader } from './styles';
-  
-import { Header } from '@components/Header';
 import { useTheme } from 'styled-components/native';
 import { Button } from '@components/Button';
 
@@ -16,78 +14,76 @@ type RouteParams = {
 }
   
 export function Meal() {
-const [isModalVisible, setModalVisible] = useState(false);
+    const [isModalVisible, setModalVisible] = useState(false);
 
-const { COLORS } = useTheme();
-const route = useRoute()
+    const { COLORS } = useTheme();
+    const route = useRoute()
 
-const navigation = useNavigation()
+    const navigation = useNavigation()
 
-const { meal } = route.params as RouteParams;
+    const { meal } = route.params as RouteParams;
 
-function handleGoToEditMeal() {
-    navigation.navigate('edit', { meal });
-}
+    function handleGoToEditMeal() {
+        navigation.navigate('edit', { meal });
+    }
 
-function handleGoToMain() {
-    navigation.navigate('main');
-}
+    function handleGoToMain() {
+        navigation.navigate('main');
+    }
 
+    return (
+        <Container>
+            <MealHeader inDiet={meal.isOnDiet ? true : false} onPress={handleGoToMain}>
+                <ContainerMealHeader>
+                    <BackIcon />
+                    <Title>Refeição</Title>
+                </ContainerMealHeader>
+            </MealHeader>
 
+            <MealContainer>
+            <MealTitle>{meal.title}</MealTitle>
 
-return (
-    <Container>
-        <MealHeader inDiet={meal.isOnDiet ? true : false} onPress={handleGoToMain}>
-            <ContainerMealHeader>
-                <BackIcon />
-                <Title>Refeição</Title>
-            </ContainerMealHeader>
-        </MealHeader>
+            <MealDescription>
+                {meal.description}
+            </MealDescription>
+            
+            <DateTimeTitle>Data e hora</DateTimeTitle>
 
-        <MealContainer>
-        <MealTitle>{meal.title}</MealTitle>
+            <MealDescription>
+                {dateFormat(meal.date, 'date')} 
+                {''} às {''}
+                {dateFormat(meal.date,'time')}
+            </MealDescription>
 
-        <MealDescription>
-            {meal.description}
-        </MealDescription>
-        
-        <DateTimeTitle>Data e hora</DateTimeTitle>
+            <Tag>
+                <TagStatus inDiet={meal.isOnDiet ? true : false }/>
+                <TagText>
+                    {meal.isOnDiet ? 'dentro da dieta' : 'fora da dieta'}
+                </TagText>
+            </Tag>
 
-        <MealDescription>
-            {dateFormat(meal.date, 'date')} 
-            {''} às {''}
-            {dateFormat(meal.date,'time')}
-        </MealDescription>
+            <Modal 
+                isModalVisible={isModalVisible} 
+                setModalVisible={setModalVisible} 
+                id={meal.id}
+                date={meal.date}
+            />      
 
-        <Tag>
-            <TagStatus inDiet={meal.isOnDiet ? true : false }/>
-            <TagText>
-                {meal.isOnDiet ? 'dentro da dieta' : 'fora da dieta'}
-            </TagText>
-        </Tag>
+            <Button 
+                title='Editar refeição' 
+                icon={<PencilLine size={24} color={COLORS.WHITE}/>}
+                style={{ marginTop: 'auto' }}
+                onPress={handleGoToEditMeal}
+            />
 
-        <Modal 
-            isModalVisible={isModalVisible} 
-            setModalVisible={setModalVisible} 
-            id={meal.id}
-            date={meal.date}
-        />      
-
-        <Button 
-            title='Editar refeição' 
-            icon={<PencilLine size={24} color={COLORS.WHITE}/>}
-            style={{ marginTop: 'auto' }}
-            onPress={handleGoToEditMeal}
-        />
-
-        <Button 
-            title='Excluir refeição' 
-            icon={<Trash size={24}/>}
-            variant='SECONDARY'
-            style={{marginBottom: 28, borderColor: useTheme().COLORS.GRAY_100}}
-            onPress={() => setModalVisible(true)}
-        />
-        </MealContainer>
-    </Container>
+            <Button 
+                title='Excluir refeição' 
+                icon={<Trash size={24}/>}
+                variant='SECONDARY'
+                style={{marginBottom: 28, borderColor: useTheme().COLORS.GRAY_100}}
+                onPress={() => setModalVisible(true)}
+            />
+            </MealContainer>
+        </Container>
     );
 }
