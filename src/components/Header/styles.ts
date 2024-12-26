@@ -14,11 +14,11 @@ export const Logo = styled.Image`
 
 export const AvatarContainer = styled.View`
   border: 3px solid ${() => useTheme().COLORS.GRAY_200};
-  border-radius: 100px;
+  border-radius: 1000px;
 `
 
 export const Avatar = styled.Image`
-    width: 40px;
-    height: 40px;
-    border-radius: 100px;
+    width: 42px;
+    height: 42px;
+    border-radius: 1000px;
 `;
