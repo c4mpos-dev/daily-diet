@@ -2,6 +2,9 @@
   "expo": {
     "name": "Daily Diet",
     "slug": "daily-diet",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "newArchEnabled": true,
     "version": "1.0.0",
     "orientation": "portrait",
@@ -30,7 +33,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "f96d95b3-308d-48c5-8be7-6ed3c57989b5"
+        "projectId": "f75bc361-9402-45b7-b8d4-d3ab2106ac99"
       }
     }
   }

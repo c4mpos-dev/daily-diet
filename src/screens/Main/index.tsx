@@ -52,8 +52,6 @@ export function Main(){
         navigation.navigate('meal', { meal });
     }
 
-    // AsyncStorage.clear();
-
     useFocusEffect(
         useCallback(() => {
         async function fetchMeals() {
