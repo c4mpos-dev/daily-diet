@@ -4,7 +4,7 @@ import { Button } from '@components/Button';
 
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { PencilLine, Trash } from 'phosphor-react-native';
-import { MealType } from '@screens/Main';
+import { MealType } from '@screens/Home';
 import { dateFormat } from '@utils/dateFormat';
 import { useState } from 'react';
 import { Modal } from '@components/Modal';
@@ -28,7 +28,7 @@ export function Meal() {
     }
 
     function handleGoToMain() {
-        navigation.navigate('main');
+        navigation.navigate('home');
     }
 
     return (

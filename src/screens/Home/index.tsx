@@ -29,7 +29,7 @@ export interface MealProps {
     data: MealType[];
 };
 
-export function Main(){
+export function Home(){
     const [meal, setMeal] = useState<MealProps[]>([]);
     const navigation = useNavigation();
 

@@ -6,7 +6,7 @@ import { Button } from '@components/Button';
 
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { SelectButton } from '@components/SelectButton';
-import { MealType } from '@screens/Main';
+import { MealType } from '@screens/Home';
 import { useState } from 'react';
 import { dateFormat } from '@utils/dateFormat';
 import { Alert } from 'react-native';

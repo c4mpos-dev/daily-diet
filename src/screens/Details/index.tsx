@@ -2,7 +2,7 @@ import { Percentage } from '@components/Percentage';
 import { Container, ContainerPercentage, ContainerStatistics, DetailHeader, DietContainer, DietDesciption, DietsInfoContainer, DietText, OffDietContainer, OffDietDesciption, OffDietText, RegisteredContainer, RegisteredDesciption, RegisteredText, SequenceContainer, SequenceDesciption, SequenceText, StatisticsText } from './styles';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { useCallback, useState } from 'react';
-import { MealProps } from '@screens/Main';
+import { MealProps } from '@screens/Home';
 import { mealsGetAll } from '@storage/meal/mealsGetAll';
 import { bestStreak } from '@utils/bestStreak';
 import { percentageFormat } from '@utils/percentageFormat';
@@ -13,7 +13,7 @@ export function Details(){
     const navigation = useNavigation();
     
     function handleGoToMain() {
-        navigation.navigate('main');
+        navigation.navigate('home');
     }
 
     async function fetchDetails() {

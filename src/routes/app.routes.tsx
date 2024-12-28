@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { Main } from "@screens/Main"
+import { Home } from "@screens/Home"
 import { Details } from "@screens/Details"
 import { NewMeal } from "@screens/NewMeal";
 import { Feedback } from "@screens/Feedback";
@@ -14,8 +14,8 @@ export function AppRoutes() {
     <Navigator screenOptions={{ headerShown: false }}>
 
       <Screen 
-        name="main"
-        component={Main}
+        name="home"
+        component={Home}
       />
 
       <Screen 

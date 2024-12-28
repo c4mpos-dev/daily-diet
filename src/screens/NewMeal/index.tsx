@@ -19,7 +19,7 @@ export function NewMeal() {
     const navigation = useNavigation();
 
     function handleGoToMain() {
-        navigation.navigate('main');
+        navigation.navigate('home');
     }
 
     function onChange(evt: DateTimePickerEvent, selectedDate?: Date) {
@@ -59,7 +59,7 @@ export function NewMeal() {
     
         try {
             await mealCreate(newMeal);
-            navigation.navigate('main');
+            navigation.navigate('home');
         } catch (error) {
             console.log(error);
             Alert.alert('Criar refeição', 'Não foi possível criar a refeição.');

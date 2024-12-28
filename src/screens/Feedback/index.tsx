@@ -18,7 +18,7 @@ export function Feedback() {
     const { isOnDiet } = route.params as RouteParams;
 
     function handleGoMain() {
-        navigation.navigate('main');
+        navigation.navigate('home');
     }
   
     return (

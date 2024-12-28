@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { MealProps } from '@screens/Main';
+import { MealProps } from '@screens/Home';
 import { MEAL_COLLECTION } from '@storage/storageConfig';
 
 export async function mealsGetAll() {

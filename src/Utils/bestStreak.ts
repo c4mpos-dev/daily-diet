@@ -1,4 +1,4 @@
-import { MealType } from '@screens/Main';
+import { MealType } from '@screens/Home';
 
 export function bestStreak(meal: MealType[]) {
     let streak = 0;
