@@ -2,19 +2,19 @@
   "expo": {
     "name": "Daily Diet",
     "slug": "daily-diet",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "newArchEnabled": true,
     "version": "1.0.0",
     "orientation": "portrait",
+    "newArchEnabled": true,
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FAFAFA"
     },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -23,7 +23,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.cauacampos.dailydiet"
+      "softwareKeyboardLayoutMode": "pan",
+      "package": "com.ccamposs.dailydiet"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -35,6 +36,12 @@
       "eas": {
         "projectId": "f75bc361-9402-45b7-b8d4-d3ab2106ac99"
       }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/f75bc361-9402-45b7-b8d4-d3ab2106ac99"
     }
   }
 }
