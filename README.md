@@ -68,3 +68,6 @@ npx expo start
 - **src/**: Contém o código-fonte do aplicativo.
 - **assets/**: Imagens e outros recursos estáticos.
 - **App.tsx**: Ponto de entrada principal do aplicativo.
+
+## 🔖 Layout
+- [Daily Diet - Figma](https://www.figma.com/community/file/1218573349379609244)
