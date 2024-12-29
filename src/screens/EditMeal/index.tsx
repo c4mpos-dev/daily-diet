@@ -1,16 +1,16 @@
 import { Container, Label, DateTimeContent, OptionContainer, OptionContent, NewMealHeader, BackIcon, ContainerNewMealHeader, Title, ContainerNewMealInfo, ContainerDateTime, ContainerName, ContainerDescription } from './styles';
-  
-import { Header } from '@components/Header';
-import { Input } from '@components/Input';
-import { Button } from '@components/Button';
-
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { SelectButton } from '@components/SelectButton';
-import { MealType } from '@screens/Home';
 import { useState } from 'react';
-import { dateFormat } from '@utils/dateFormat';
 import { Alert } from 'react-native';
 import { DateTimePickerAndroid, DateTimePickerEvent } from '@react-native-community/datetimepicker';
+import { useNavigation, useRoute } from "@react-navigation/native";
+
+import { Input } from '@components/Input';
+import { Button } from '@components/Button';
+import { SelectButton } from '@components/SelectButton';
+
+import { MealType } from '@screens/Home';
+import { dateFormat } from '@utils/dateFormat';
+
 import { editMeal } from '@storage/meal/mealEdit';
 
 type RouteParams = {

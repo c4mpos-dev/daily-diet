@@ -1,13 +1,13 @@
 import React, { useId, useState } from 'react';
+import { Alert } from 'react-native';
 import { DateTimePickerEvent, DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import { BackIcon, Container, ContainerDateTime, ContainerDescription, ContainerName, ContainerNewMealHeader, ContainerNewMealInfo, DateTimeContent, Label, NewMealHeader, OptionContainer, OptionContent, Title } from './styles';
 import { useNavigation } from '@react-navigation/native';
 import { Input } from '@components/Input';
-import { dateFormat } from '@utils/dateFormat';
 import { SelectButton } from '@components/SelectButton';
 import { Button } from '@components/Button';
-import { Alert } from 'react-native';
 import { mealCreate } from '@storage/meal/mealCreate';
+import { dateFormat } from '@utils/dateFormat';
 
 export function NewMeal() {
     const [date, setDate] = useState<number>(new Date().getTime());

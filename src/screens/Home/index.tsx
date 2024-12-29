@@ -81,9 +81,9 @@ export function Home(){
             </MealText>
 
             <Button 
-                onPress={handleGoToNewMeal}
-                icon={<Plus size={18} color={useTheme().COLORS.WHITE} weight='bold'/>}
                 title='Nova refeição'
+                icon={<Plus size={18} color={useTheme().COLORS.WHITE} weight='bold'/>}
+                onPress={handleGoToNewMeal}
             />
 
             <SectionList

@@ -1,14 +1,13 @@
 import { Container, MealTitle, Title, MealContainer, MealDescription,DateTimeTitle,Tag,TagStatus,TagText, MealHeader, BackIcon, ContainerMealHeader } from './styles';
+import { useState } from 'react';
 import { useTheme } from 'styled-components/native';
-import { Button } from '@components/Button';
-
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { PencilLine, Trash } from 'phosphor-react-native';
+import { Button } from '@components/Button';
+import { Modal } from '@components/Modal';
 import { MealType } from '@screens/Home';
 import { dateFormat } from '@utils/dateFormat';
-import { useState } from 'react';
-import { Modal } from '@components/Modal';
-  
+
 type RouteParams = {
     meal: MealType
 }

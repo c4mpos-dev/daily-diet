@@ -24,7 +24,7 @@
         "backgroundColor": "#ffffff"
       },
       "softwareKeyboardLayoutMode": "pan",
-      "package": "com.ccamposs.dailydiet"
+      "package": "com.camposrascunho.dailydiet"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -34,14 +34,8 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "f75bc361-9402-45b7-b8d4-d3ab2106ac99"
+        "projectId": "dc9e771f-cde9-4a7e-9d87-8b5d2fdf63c3"
       }
-    },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
-    "updates": {
-      "url": "https://u.expo.dev/f75bc361-9402-45b7-b8d4-d3ab2106ac99"
     }
   }
 }

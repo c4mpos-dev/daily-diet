@@ -1,10 +1,7 @@
 import { Container, Illustration, Title, Description } from './styles';
-
 import SuccessImg from '@assets/icons/success.png';
 import FailImg from '@assets/icons/fail.png';
-
 import { Button } from '@components/Button';
-
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 type RouteParams = {

@@ -14,7 +14,7 @@ export const Container = styled(TouchableOpacity)<ButtonIconStyleProps>`
   height: 102px;
   margin-top: 20px;
   border-radius: 8px;
-  background-color: ${({ type }: ButtonIconStyleProps) => type === 'PRIMARY' ? useTheme().COLORS.GREEN_LIGHT : type === 'SECONDARY' ? useTheme().COLORS.RED_LIGHT : undefined};
+  background-color: ${({ type }: ButtonIconStyleProps) => type === 'PRIMARY' ? useTheme().COLORS.GREEN_LIGHT : useTheme().COLORS.RED_LIGHT};
 `;
 
 export const Title = styled.Text`
@@ -39,7 +39,7 @@ export const Desciption = styled.Text`
 
 export const StatisticsIcon = styled(ArrowUpRight).attrs<ButtonIconStyleProps>(({ type }: ButtonIconStyleProps) => ({
   size: useTheme().FONT_SIZE.XL,
-  color: type === 'PRIMARY' ? useTheme().COLORS.GREEN_DARK : type === 'SECONDARY' ? useTheme().COLORS.RED_DARK : undefined,
+  color: type === 'PRIMARY' ? useTheme().COLORS.GREEN_DARK : useTheme().COLORS.RED_DARK,
   fontFamily: useTheme().FONT_FAMILY.BOLD,
 }))`
   top: 10px;
@@ -48,7 +48,7 @@ export const StatisticsIcon = styled(ArrowUpRight).attrs<ButtonIconStyleProps>((
 
 export const BackIcon = styled(ArrowLeft).attrs<ButtonIconStyleProps>(({type}: ButtonIconStyleProps) => ({
   size: useTheme().FONT_SIZE.XL,
-  color: type === 'PRIMARY' ? useTheme().COLORS.GREEN_DARK : type === 'SECONDARY' ? useTheme().COLORS.RED_DARK : undefined,
+  color: type === 'PRIMARY' ? useTheme().COLORS.GREEN_DARK : useTheme().COLORS.RED_DARK,
   fontFamily: useTheme().FONT_FAMILY.BOLD,
 }))`
   top: 10px;

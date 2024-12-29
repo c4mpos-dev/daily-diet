@@ -16,7 +16,7 @@ export const ContainerPercentage = styled(SafeAreaView)`
 `;
 
 export const DetailHeader = styled.View<StyleProps>`
-    background-color: ${({ type }: StyleProps) => type === 'PRIMARY' ? useTheme().COLORS.GREEN_LIGHT : type === 'SECONDARY' ? useTheme().COLORS.RED_LIGHT : undefined};
+    background-color: ${({ type }: StyleProps) => type === 'PRIMARY' ? useTheme().COLORS.GREEN_LIGHT : useTheme().COLORS.RED_LIGHT};
     height: 185px;
     justify-content: center;
     margin-bottom: -15px;
