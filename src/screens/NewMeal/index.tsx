@@ -141,7 +141,7 @@ export function NewMeal() {
                     </OptionContent>
 
                     <Button
-                        style={{marginBottom: 40}}
+                        style={{marginBottom: 20}}
                         title='Cadastrar refeição'
                         onPress={handleCreateNewMeal}
                     />

@@ -24,7 +24,7 @@
         "backgroundColor": "#ffffff"
       },
       "softwareKeyboardLayoutMode": "pan",
-      "package": "com.camposrascunho.dailydiet"
+      "package": "com.cauacampos.dailydiet"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -34,7 +34,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "dc9e771f-cde9-4a7e-9d87-8b5d2fdf63c3"
+        "projectId": "f96d95b3-308d-48c5-8be7-6ed3c57989b5"
       }
     }
   }

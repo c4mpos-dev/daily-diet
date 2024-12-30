@@ -79,13 +79,12 @@ export const DateTimeTitle = styled.Text`
 
 export const Tag = styled.View`
     background-color: ${() => useTheme().COLORS.GRAY_600};
-    display: flex;
     flex-direction: row;
     justify-content: start;
     padding-left: 15px;
     align-items: center;
     height: 34px;
-    width: 45%;
+    width: 160px;
     margin-top: 22px;
     gap: 10px;
     border-radius: 10000px;

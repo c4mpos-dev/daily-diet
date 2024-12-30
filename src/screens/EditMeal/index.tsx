@@ -141,7 +141,7 @@ export function EditMeal() {
                     </OptionContent>
 
                     <Button
-                        style={{marginBottom: 40}}
+                        style={{marginBottom: 20}}
                         title='Salvar alterações'
                         onPress={handleEditMeal}
                     />

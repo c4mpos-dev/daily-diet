@@ -70,15 +70,16 @@ export const ContainerDescription = styled.View`
 
 export const ContainerDateTime = styled.View`
     width: 100%;
-    height: 125px;
+    height: 105px;
     flex-direction: row;
     gap: 20px;
+    margin-top: -10px;
 `;
 
 export const DateTimeContent = styled.View`
     flex: 1;
     gap: 4px;
-    max-height: 120px;
+    max-height: 100px;
 `;
 
 export const OptionContainer = styled.View`
