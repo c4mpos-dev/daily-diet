@@ -43,7 +43,7 @@ git clone https://github.com/c4mpos-dev/daily-diet.git
 2. **Navegue até o diretório do projeto**
 
 ```bash
-cd todo-list
+cd daily-diet
 ```
    `Use este comando para mudar para o diretório do projeto que você acabou de clonar.`
 
